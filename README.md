@@ -5,13 +5,6 @@
 This is an interactive data visualization project using the **County Health Rankings & Roadmaps** dataset. The visualization enables county-by-county, year-by-year exploration of health outcomes across the United States.
 
 
-## Technologies Used
-
-- **D3.js v7**: For data visualization and DOM manipulation
-- **TopoJSON**: For efficient geographic data representation
-- **Vanilla JavaScript**: No frameworks, pure JS implementation
-- **HTML5 & CSS3**: Modern, responsive design
-
 ## Health Metrics
 
 The visualization includes the following health indicators:
