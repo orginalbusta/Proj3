@@ -51,20 +51,6 @@ Proj3/
 - **Zoom & Pan**: Explore specific regions in detail
 - **Tooltips**: Hover for quick county statistics
 
-## Getting Started
-
-1. **View the Visualization**
-   ```bash
-   # Start a local server
-   python -m http.server 8000
-   ```
-   Then open `http://localhost:8000` in your browser
-
-2. **Interact with the Map**
-   - Click on any county to see detailed time series data
-   - Use the metric selector to change what's displayed
-   - Zoom and pan to explore specific regions
-   - Hover over counties for quick statistics
 
 ## Data Source
 
