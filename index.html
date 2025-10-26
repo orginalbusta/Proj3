@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>County Health Rankings Interactive Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>County Health Rankings: Interactive Exploration</h1>
+            <p class="subtitle">Explore county-level health data across the United States</p>
+        </header>
+
+        <div class="controls-panel">
+            <div class="control-group" style="display: none;">
+                <label for="year-slider">Year:</label>
+                <input type="range" id="year-slider" min="2024" max="2024" value="2024" step="1">
+                <span id="year-display">2024</span>
+            </div>
+
+            <div class="control-group">
+                <label for="metric-selector">Health Metric:</label>
+                <select id="metric-selector">
+                    <optgroup label="Health Outcomes">
+                        <option value="life_expectancy" selected>Life Expectancy</option>
+                        <option value="premature_death">Premature Death Rate</option>
+                        <option value="poor_health">Poor or Fair Health</option>
+                    </optgroup>
+                    <optgroup label="Health Behaviors">
+                        <option value="adult_obesity">Adult Obesity</option>
+                        <option value="adult_smoking">Adult Smoking</option>
+                        <option value="physical_inactivity">Physical Inactivity</option>
+                        <option value="diabetes">Diabetes Prevalence</option>
+                        <option value="excessive_drinking">Excessive Drinking</option>
+                    </optgroup>
+                    <optgroup label="Socioeconomic Factors">
+                        <option value="median_income">Median Household Income</option>
+                        <option value="hs_graduation">High School Graduation</option>
+                    </optgroup>
+                    <optgroup label="Clinical Care">
+                        <option value="uninsured">Uninsured Rate</option>
+                        <option value="primary_care_rate">Primary Care Physicians (per 100k)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <button id="reset-button" class="btn">Reset View</button>
+        </div>
+
+        <div id="visualization-container">
+            <div id="map-container">
+                <svg id="map-svg"></svg>
+            </div>
+            
+            <div id="info-panel">
+                <h3>County Details</h3>
+                <div id="county-info">
+                    <p><strong>🖱️ Click a county</strong> to explore its health data over time (2022-2024)</p>
+                    <p>Hover to see quick details</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="legend-container">
+            <svg id="legend-svg"></svg>
+        </div>
+
+        <!-- County Detail Modal -->
+        <div id="county-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <h2 id="modal-county-name">County Name</h2>
+                <p id="modal-county-state">State</p>
+                
+                <div class="modal-year-control">
+                    <label for="modal-year-slider">Explore Year:</label>
+                    <input type="range" id="modal-year-slider" min="2022" max="2024" value="2024" step="1">
+                    <span id="modal-year-display">2024</span>
+                </div>
+                
+                <div id="modal-metrics-container">
+                    <!-- Metrics will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-section">
+            <h2>Key Insights</h2>
+            <div id="insights-content">
+                <p>Explore the map to discover patterns in health outcomes across U.S. counties.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="writeup-section">
+                <h2>Data Sources</h2>
+                <div class="data-sources-content">
+                    <p>
+                        <strong>Primary Dataset:</strong> 
+                        <a href="https://www.countyhealthrankings.org/health-data" target="_blank">
+                        County Health Rankings & Roadmaps</a> - 2025 Release (v3)
+                        <br>
+                        Provides 2024 health outcomes, health behaviors, clinical care, and socioeconomic data for 3,159 U.S. counties.
+                        A collaboration between the Robert Wood Johnson Foundation and the University of Wisconsin Population Health Institute.
+                    </p>
+                    <p>
+                        <strong>Time Series Data (County Click Modal):</strong>
+                    </p>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>2022:</strong> Real historical data from <a href="https://www.cdc.gov/places/" target="_blank">CDC PLACES</a> (health behaviors: obesity, smoking, diabetes, physical inactivity, etc.)</li>
+                        <li><strong>2023-2024:</strong> County Health Rankings 2024 data (PLACES data for these years not yet released)</li>
+                    </ul>
+                    <p style="font-size: 0.9em; color: #666; margin-top: 15px;">
+                        <em>Note: Socioeconomic metrics (income, education, life expectancy, premature death) use 2024 CHR values across all years as historical data is not available.</em>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

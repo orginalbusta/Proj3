@@ -1,0 +1,478 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.95;
+}
+
+/* Controls panel */
+.controls-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control-group label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95em;
+}
+
+#year-slider {
+    width: 200px;
+    cursor: pointer;
+}
+
+#year-display {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 1.1em;
+    min-width: 50px;
+}
+
+#metric-selector,
+#state-filter {
+    padding: 8px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#metric-selector:hover,
+#state-filter:hover,
+#metric-selector:focus,
+#state-filter:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.95em;
+}
+
+.btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Visualization container */
+#visualization-container {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+    min-height: 600px;
+}
+
+#map-container {
+    flex: 3;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#map-svg {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+#info-panel {
+    flex: 1;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#info-panel h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+#county-info {
+    color: #495057;
+    line-height: 1.8;
+}
+
+#county-info p {
+    margin-bottom: 10px;
+}
+
+#county-info strong {
+    color: #333;
+}
+
+/* Legend */
+#legend-container {
+    padding: 20px 30px;
+    background: #f8f9fa;
+    border-top: 2px solid #e9ecef;
+    border-bottom: 2px solid #e9ecef;
+}
+
+#legend-svg {
+    width: 100%;
+    height: 100px;  /* Increased from 80px to prevent title cutoff */
+    display: block;
+}
+
+/* Insights section */
+.insights-section {
+    padding: 30px;
+    background: white;
+}
+
+.insights-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+#insights-content {
+    color: #495057;
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+/* Footer / Writeup */
+footer {
+    background: #f8f9fa;
+    padding: 40px;
+}
+
+.writeup-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 1.8em;
+}
+
+.writeup-section h2:first-child {
+    margin-top: 0;
+}
+
+.writeup-content h3 {
+    color: #495057;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.writeup-content p,
+.writeup-content ul {
+    color: #495057;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.writeup-content ul {
+    padding-left: 30px;
+}
+
+.writeup-content li {
+    margin-bottom: 10px;
+}
+
+.writeup-content strong {
+    color: #333;
+}
+
+.writeup-section a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.writeup-section a:hover {
+    text-decoration: underline;
+}
+
+.data-sources-content p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.data-sources-content strong {
+    color: #2c5282;
+    font-size: 1.05em;
+}
+
+/* County styles for map */
+.county {
+    stroke: #fff;
+    stroke-width: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.county:hover {
+    stroke: #333;
+    stroke-width: 2px;
+    opacity: 0.8;
+}
+
+.state-boundary {
+    fill: none;
+    stroke: #333;
+    stroke-width: 1.5px;
+    pointer-events: none;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 0.9em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.tooltip strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    #visualization-container {
+        flex-direction: column;
+    }
+    
+    #map-container,
+    #info-panel {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    .controls-panel {
+        flex-direction: column;
+    }
+    
+    .control-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    color: #999;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 20px;
+    transition: color 0.2s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #333;
+}
+
+#modal-county-name {
+    margin: 10px 0;
+    color: #2c5282;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#modal-county-state {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.modal-year-control {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #e2e8f0;
+}
+
+.modal-year-control label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2c5282;
+}
+
+#modal-year-slider {
+    width: calc(100% - 80px);
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+#modal-year-display {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c5282;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+}
+
+#modal-metrics-container {
+    margin-top: 25px;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 8px 0;
+    background: #f7fafc;
+    border-radius: 6px;
+    border-left: 4px solid #4299e1;
+    transition: all 0.2s;
+}
+
+.metric-row:hover {
+    background: #edf2f7;
+    transform: translateX(4px);
+}
+
+.metric-name {
+    font-weight: 600;
+    color: #2d3748;
+    flex: 1;
+}
+
+.metric-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c5282;
+    min-width: 100px;
+    text-align: right;
+}
+
+.metric-value.na {
+    color: #999;
+    font-weight: 400;
+    font-style: italic;
+}
+
