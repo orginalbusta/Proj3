@@ -59,7 +59,7 @@
             <div id="info-panel">
                 <h3>County Details</h3>
                 <div id="county-info">
-                    <p><strong>🖱️ Click a county</strong> to explore its health data over time (2022-2024)</p>
+                    <p><strong>🖱️ Click a county</strong> to see all health metrics at once</p>
                     <p>Hover to see quick details</p>
                 </div>
             </div>
@@ -76,9 +76,9 @@
                 <h2 id="modal-county-name">County Name</h2>
                 <p id="modal-county-state">State</p>
                 
-                <div class="modal-year-control">
+                <div class="modal-year-control" style="display: none;">
                     <label for="modal-year-slider">Explore Year:</label>
-                    <input type="range" id="modal-year-slider" min="2022" max="2024" value="2024" step="1">
+                    <input type="range" id="modal-year-slider" min="2024" max="2024" value="2024" step="1">
                     <span id="modal-year-display">2024</span>
                 </div>
                 
@@ -90,26 +90,15 @@
 
         <footer>
             <div class="writeup-section">
-                <h2>Data Sources</h2>
+                <h2>Data Source</h2>
                 <div class="data-sources-content">
                     <p>
-                        <strong>Primary Dataset:</strong> 
-                        <a href="https://www.countyhealthrankings.org/health-data" target="_blank">
-                        County Health Rankings & Roadmaps</a> - 2025 Release (v3)
-                        <br>
-                        Provides 2024 health outcomes, health behaviors, clinical care, and socioeconomic data for 3,159 U.S. counties.
-                        A collaboration between the Robert Wood Johnson Foundation and the University of Wisconsin Population Health Institute.
-                    </p>
-                    <p>
-                        <strong>Additional Datasets Available:</strong>
-                    </p>
-                    <ul style="margin-left: 20px; line-height: 1.8;">
-                        <li><strong><a href="https://www.cdc.gov/places/" target="_blank">CDC PLACES</a></strong> (Local Data for Better Health): County-level health data for years 2018-2022</li>
-                        <li><strong>County Health Rankings Trends</strong>: Historical data from 2014-2021 for select metrics</li>
-                    </ul>
-                    <p style="font-size: 0.9em; color: #666; margin-top: 15px;">
-                        <em><strong>Note:</strong> The time series functionality in the county click modal (2022-2024) currently uses synthetic data based on 2024 baseline values. 
-                        Integration of the historical PLACES and CHR Trends datasets is planned for future development to provide real year-over-year comparisons.</em>
+                        <strong><a href="https://www.countyhealthrankings.org/health-data" target="_blank">
+                        County Health Rankings & Roadmaps</a></strong> - 2025 Release (v3)
+                        <br><br>
+                        2024 health data for 3,159 U.S. counties covering health outcomes, health behaviors, 
+                        clinical care, and socioeconomic factors. A collaboration between the Robert Wood Johnson 
+                        Foundation and the University of Wisconsin Population Health Institute.
                     </p>
                 </div>
             </div>

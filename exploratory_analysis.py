@@ -34,7 +34,7 @@ print("\n[1/6] Creating correlation heatmap...")
 metrics_for_corr = [
     'life_expectancy', 'premature_death', 'adult_obesity', 
     'adult_smoking', 'physical_inactivity', 'diabetes',
-    'unemployment', 'median_income', 'hs_graduation',
+    'median_income', 'hs_graduation',
     'uninsured', 'primary_care_rate', 'poor_health'
 ]
 

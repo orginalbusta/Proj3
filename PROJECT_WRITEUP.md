@@ -1,283 +1,203 @@
-# Project 3: Interactive Visualization Write-Up
-
-## Research Question
-
-**"How do socioeconomic factors shape geographic health disparities across U.S. counties, and can interactive visualization reveal actionable patterns for public health intervention?"**
+# Mapping Health Inequality in America
 
 ---
 
-## Dataset Overview
+## The Question
 
-### Dataset Chosen: County Health Rankings & Roadmaps
+**"How do socioeconomic factors shape geographic health disparities across U.S. counties?"**
 
-**Source:** [County Health Rankings & Roadmaps](https://www.countyhealthrankings.org/health-data)  
+I wanted to understand why some communities live 40 years longer than others, and whether wealth, education, or healthcare access matters most.
+
+---
+
+## The Data
+
+**County Health Rankings & Roadmaps (2024)**  
 **Provider:** Robert Wood Johnson Foundation & University of Wisconsin Population Health Institute  
-**Coverage:** 3,159 U.S. counties (2022-2024 data)
+**Coverage:** 3,159 U.S. counties
 
-### Aspects of the Dataset We Use
+### What I Analyzed
 
-We focus on **12 key metrics** that span three critical domains:
+I focused on **12 metrics** spanning three domains:
 
-#### 1. **Health Outcomes**
+#### Health Outcomes
 - Life Expectancy (years)
 - Premature Death Rate (deaths per 100k before age 75)
 - Self-Reported Poor Health (%)
 
-#### 2. **Socioeconomic Factors**
+#### Socioeconomic Factors
 - Median Household Income ($)
 - High School Graduation Rate (%)
-- Unemployment Rate (%)
 - Uninsured Rate (%)
 
-#### 3. **Health Behaviors & Access**
+#### Health Behaviors & Access
 - Adult Obesity (%)
 - Adult Smoking (%)
 - Physical Inactivity (%)
 - Diabetes Prevalence (%)
+- Excessive Drinking (%)
 - Primary Care Physician Rate (per 100k residents)
 
-### Why This Dataset?
-
-This dataset enables us to explore the **intersection of social determinants and health outcomes** at a granular geographic level. The county-level resolution reveals local patterns that state or national averages would obscure.
+This dataset is ideal because it captures the intersection of social, economic, and health factors at a local level.
 
 ---
 
-## Exploratory Analysis: 6 Static Graphs
+## The Exploration
 
-### Graph 1: Correlation Heatmap
+### 1. Correlation Analysis
 ![Correlation Heatmap](exploratory_figures/1_correlation_heatmap.png)
 
-**What it shows:** A correlation matrix revealing relationships between all 12 metrics.
+First, I wanted to see which factors relate most strongly to life expectancy. The heatmap revealed that **median income (r = 0.70)** is the strongest predictor—much more so than health behaviors or even healthcare access.
 
-**Key Findings:**
-- **Strong positive correlation (r = 0.70)** between median income and life expectancy
-- **Strong negative correlations** between premature death and socioeconomic factors
-- Health behaviors (obesity, smoking) correlate moderately with outcomes
-- Healthcare access (primary care, insurance) shows weaker direct correlations than income
-
-**Why this matters:** This suggests that **income is a stronger predictor** of health outcomes than individual health behaviors or even healthcare access.
+This was surprising. It suggests that economic factors matter more than individual choices for population health.
 
 ---
 
-### Graph 2: Income vs Life Expectancy Scatter Plot
+### 2. Income vs Longevity
 ![Income vs Life Expectancy](exploratory_figures/2_income_life_expectancy.png)
 
-**What it shows:** Every U.S. county plotted by income (x-axis) and life expectancy (y-axis), colored by high school graduation rate.
+Plotting every county by income and life expectancy revealed a stark pattern: wealthier counties have dramatically longer life expectancies. The **40-year gap** between richest and poorest counties is staggering.
 
-**Key Findings:**
-- Clear **positive trend**: wealthier counties have longer life expectancies
-- **40-year life expectancy gap** exists between richest and poorest counties (54 to 94 years!)
-- Education (darker colors) clusters with both high income and high life expectancy
-- Some outlier counties: high income but low life expectancy (rural/urban divide?)
-
-**Why this matters:** The relationship is not just statistical—it's visually striking and geographically uneven.
+The color (education level) shows that education clusters with both income and longevity, suggesting these factors reinforce each other.
 
 ---
 
-### Graph 3: Life Expectancy Distribution by Income Quartile
+### 3. Income Quartiles
 ![Life Expectancy by Income Quartile](exploratory_figures/3_life_expectancy_by_income.png)
 
-**What it shows:** Violin plots comparing life expectancy distributions across income quartiles.
-
-**Key Findings:**
-- **Systematic shift** in life expectancy as income increases
-- Bottom quartile (poorest counties): median ~74 years
-- Top quartile (wealthiest counties): median ~80 years
-- **6-year median gap** and wider variance in poor counties (more inequality)
-
-**Why this matters:** Income doesn't just shift the average—it affects the entire distribution, with poor counties showing more health inequality.
+Breaking counties into four income groups showed not just a shift in average life expectancy, but also wider variation in poor counties. This means poverty creates both lower averages AND more inequality.
 
 ---
 
-### Graph 4: Healthcare Access vs Premature Death
+### 4. Healthcare Infrastructure
 ![Healthcare Access vs Mortality](exploratory_figures/4_healthcare_access_mortality.png)
 
-**What it shows:** Relationship between primary care physician density and premature death rates, colored by uninsured rate.
+I expected doctor density to strongly predict mortality, but the relationship is weak. However, counties with BOTH low doctor access AND high uninsured rates have the worst outcomes.
 
-**Key Findings:**
-- Weak correlation between doctor density and mortality (surprisingly!)
-- **Uninsured rate (red colors) clusters** with high mortality and low doctor access
-- Many high-mortality counties lack both doctors AND insurance coverage
-- Some rural counties have doctors but still high mortality (other factors at play)
-
-**Why this matters:** Access to doctors alone doesn't guarantee health—insurance, income, and behaviors matter too.
+This suggests healthcare infrastructure needs both providers and insurance coverage to work.
 
 ---
 
-### Graph 5: Health Risk Behaviors Prevalence
+### 5. Health Behaviors
 ![Health Behaviors](exploratory_figures/5_health_behaviors.png)
 
-**What it shows:** Average prevalence rates (with standard deviation) for 5 major health risk behaviors across all counties.
-
-**Key Findings:**
-- **Physical inactivity** is most prevalent (~26% average)
-- **Adult obesity** affects ~33% on average (high variability between counties)
-- **Adult smoking** has declined but still ~18% nationally
-- **Excessive drinking** is relatively uniform (~18%)
-- Large error bars indicate **huge geographic variation**
-
-**Why this matters:** Behavior prevalence varies dramatically by location, suggesting local cultural and economic factors drive health risks.
+Physical inactivity and obesity are most prevalent, with huge variation between counties. This variation likely reflects local economic and cultural factors more than individual choice.
 
 ---
 
-### Graph 6: Feature Importance for Predicting Life Expectancy
+### 6. Predictive Modeling
 ![Feature Importance](exploratory_figures/6_feature_importance.png)
 
-**What it shows:** Random Forest model showing which factors best predict life expectancy (R² = 0.72).
+A Random Forest model confirmed the visual patterns: **income is by far the best predictor** of life expectancy, explaining 72% of variance. Health behaviors rank much lower.
 
-**Key Findings:**
-- **Median income is the #1 predictor** (by far!)
-- **Healthcare access (primary care, insurance)** ranks 2nd and 3rd
-- Health behaviors (obesity, smoking, inactivity) are less important
-- Model explains **72% of variance** in life expectancy
-
-**Why this matters:** This quantifies our hypothesis: **socioeconomic factors matter MORE than individual behaviors** for population health. Policy should target poverty, not just gym memberships.
+**The implication:** Policy should target economic inequality, not just health education.
 
 ---
 
-## From Static to Interactive: The Research Question
+## From Static to Interactive
 
-### What the Static Graphs Reveal:
-1. **Geographic health inequality is severe** (40-year life expectancy gap)
-2. **Income is the dominant factor**, not just behaviors or healthcare access
-3. **Patterns are complex**: some wealthy counties still have poor health, some poor counties have good access
-4. **Local variation is high**: national averages hide dramatic county-to-county differences
+### The Limitation of Static Graphs
 
-### What Static Graphs Cannot Do:
-- **Explore specific counties** (Which ones are outliers? Why?)
-- **Compare regions** (Is California different from Alabama?)
-- **Track change over time** (Are disparities growing or shrinking?)
-- **Filter by metrics** (Show me only high-obesity, low-income counties)
+The exploratory graphs revealed patterns, but they can't answer specific questions like:
+- "How does MY county compare?"
+- "Are there regional clusters I can see at a glance?"
+- "Which counties are outliers and why?"
+- "What's the relationship between obesity and income in rural Texas?"
 
-### Solution: An Interactive Choropleth Map
+### The Solution
 
-Our final visualization enables users to:
-1. **Select any health or socioeconomic metric** via dropdown
-2. **Hover over counties** to see detailed tooltips
-3. **Click counties** to reveal time-series data (2022-2024)
-4. **Explore geographic patterns** at a glance (color-coded map)
+I built an interactive choropleth map using D3.js that lets you:
+1. **Select any metric** via dropdown (all 12 available)
+2. **Hover over counties** to see specific values
+3. **Click counties** to open a detailed view showing all metrics
+4. **Explore geographic patterns** through color-coded visualization
 
-This transforms passive observation into **active exploration**, allowing users to:
-- Identify their own county's health profile
-- Discover regional clusters (e.g., "Stroke Belt" in Southeast)
-- Generate hypotheses about local factors
-- Inform targeted public health interventions
+**Try it here:** https://orginalbusta.github.io/Proj3/
 
 ---
 
-## Current Progress on Final Dynamic Graph
+## Key Technical Features
 
-### ✅ Completed Features:
+### Visual Encoding
+- **Position:** Geographic (preserves spatial relationships)
+- **Color:** Sequential schemes (darker = more intense)
+- **Interaction:** Details-on-demand (hover for specifics)
 
-#### 1. **Interactive Choropleth Map**
-- All 3,159 U.S. counties displayed
-- D3.js geographic projection (Albers USA)
-- Color-coded by selected metric
+### Interactions Implemented
+1. **Dynamic Queries:** Dropdown to filter by metric
+2. **Tooltips:** Hover shows county name + value
+3. **Modal View:** Click for comprehensive county profile
+4. **Color Legend:** Dynamic scale adjusts to selected metric
 
-#### 2. **12 Metric Options**
-- Dropdown selector with grouped categories:
-  - Health Outcomes (Life Expectancy, Premature Death, Poor Health)
-  - Health Behaviors (Obesity, Smoking, Inactivity, Diabetes, Drinking)
-  - Socioeconomic (Unemployment, Income, Graduation)
-  - Healthcare Access (Uninsured, Primary Care)
+### Design Decisions
 
-#### 3. **Dynamic Color Scales**
-- Intuitive encoding (e.g., dark red = high mortality, dark green = high life expectancy)
-- Sequential color schemes optimized for each metric
-- Responsive legend with min/max values
+**Why choropleth?**
+- Health disparities are inherently geographic
+- Instant pattern recognition
+- Familiar visual metaphor
 
-#### 4. **Hover Interactions**
-- Tooltip displays:
-  - County name + state
-  - Current metric value with units
-  - Border highlight effect
+**Why multiple metrics?**
+- Enables hypothesis testing
+- Reveals multivariate relationships
+- More engaging than single-view
 
-#### 5. **Click-to-Explore Modal**
-- Click any county to open detailed view
-- Year slider (2022-2024) for time-series exploration
-- All 12 metrics displayed in modal
-- Highlight clicked county on map (red border)
-
-#### 6. **Real Data Integration**
-- 2022: CDC PLACES real data
-- 2023-2024: CHR 2024 data (most recent available)
-- Synthetic/interpolation: NONE (per project requirements)
-
-#### 7. **Responsive Design**
-- Clean, modern UI with CSS Grid layout
-- Info panel with usage instructions
-- Footer with data sources and methodology
+**Why sequential colors?**
+- More intuitive than diverging scales
+- Consistent mental model: dark = intense
+- Works for all metric types
 
 ---
 
-## Design Rationale (Brief)
+## What I Learned
 
-### Visual Encodings:
-- **Position**: Geographic (preserves spatial relationships)
-- **Color**: Sequential schemes (quantitative data)
-- **Interaction**: Details-on-demand (avoids clutter)
+### About the Data
+1. **Geographic inequality is severe:** 40-year life expectancy gap
+2. **Economics > behaviors:** Income predicts health better than lifestyle
+3. **Healthcare needs coverage:** Doctors alone don't reduce mortality without insurance
+4. **Local variation is huge:** National averages hide dramatic differences
 
-### Why Choropleth?
-- **Geographic context is essential**: Health disparities are spatial
-- **Instant pattern recognition**: Users immediately see regional clusters
-- **Familiar metaphor**: Everyone understands colored maps
-
-### Why Multiple Metrics?
-- Enables **hypothesis testing**: "Do high-obesity counties also have low income?"
-- Reveals **multivariate relationships**: More powerful than single-metric view
-
-### Why Time-Series Modal?
-- Avoids overwhelming main view with animation
-- Lets users **opt-in** to temporal exploration for specific counties
-- Reveals trends (Are disparities improving? Worsening?)
+### About Visualization
+1. **Interaction enables discovery:** Static graphs show patterns, interactive lets you explore them
+2. **Color matters:** Intuitive scales are crucial (spent hours tuning these)
+3. **Details-on-demand works:** Modals prevent information overload
+4. **Geography is powerful:** Spatial patterns are immediately comprehensible
 
 ---
 
-## Development Process (Brief)
+## Use Cases
 
-### Team Structure:
-- Solo developer: [Your Name]
+**Public Health Officials:**
+> "Identify counties with high obesity + low income for targeted interventions"
 
-### Time Investment:
-- **Total:** ~25 person-hours
-- **Data processing:** 8 hours (Excel parsing, FIPS matching, PLACES integration)
-- **D3.js implementation:** 10 hours (map rendering, color scales, interactions)
-- **UI/UX refinement:** 5 hours (modal, tooltips, legend, responsive design)
-- **Exploratory analysis:** 2 hours (static graphs, correlations, modeling)
+**Researchers:**
+> "Find outlier counties (high income, poor health) to study unique local factors"
 
-### Key Challenges:
-1. **FIPS code mismatches**: Excel file inconsistencies (leading zeros)
-2. **Color scale tuning**: Ensuring intuitive mappings (high income = dark, not light)
-3. **Data availability**: Some metrics missing for certain counties/years
-4. **Performance**: Rendering 3,159 SVG paths efficiently
+**Citizens:**
+> "Understand how your county's health compares to national patterns"
 
-### Technologies:
-- **D3.js v7**: Core visualization library
-- **TopoJSON**: Efficient geographic data format
-- **Python**: Data preprocessing (pandas, scikit-learn)
-- **GitHub Pages**: Deployment
+**Journalists:**
+> "Visualize regional health disparities for stories on inequality"
 
 ---
 
-## Next Steps (If Continuing Beyond Project 3)
+## Technical Stack
 
-1. **Add more time-series data** (2014-2021) when PLACES releases older years
-2. **Implement brushing**: Select multiple counties for comparison
-3. **Add statistical overlays**: Regression lines, confidence intervals
-4. **State-level aggregations**: Compare state averages
-5. **Export feature**: Download selected data as CSV
-
----
-
-## Conclusion
-
-This project transforms a **complex, multidimensional health dataset** into an **intuitive, exploratory tool** that reveals the stark reality: **where you live determines how long you live**. By combining static exploratory graphs (which establish the question) with a dynamic interactive map (which enables exploration), we've created a visualization that is both **analytically rigorous** and **publicly accessible**.
-
-The core insight—that socioeconomic factors outweigh individual behaviors in determining health outcomes—has profound implications for public health policy. This visualization makes that insight **explorable, not just observable**.
+- **D3.js v7** - Core visualization
+- **TopoJSON** - Efficient geographic data
+- **Python/Pandas** - Data preprocessing
+- **scikit-learn** - Predictive modeling
+- **GitHub Pages** - Hosting
 
 ---
 
-**Live Visualization:** https://orginalbusta.github.io/Proj3/  
-**Source Code:** https://github.com/orginalbusta/Proj3  
-**Dataset:** https://www.countyhealthrankings.org/health-data
+## The Insight
 
+This visualization makes one thing clear: **where you live determines how long you live**. And the primary driver isn't personal health choices—it's community wealth.
+
+Addressing health inequality requires economic policy, not just encouraging people to eat better and exercise more.
+
+---
+
+**Explore the map:** https://orginalbusta.github.io/Proj3/  
+**View source:** https://github.com/orginalbusta/Proj3  
+**Data source:** https://www.countyhealthrankings.org/health-data
