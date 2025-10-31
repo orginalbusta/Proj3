@@ -9,7 +9,7 @@
 ## 1. Dataset Chosen
 
 ### Primary Dataset: County Health Rankings & Roadmaps (2024)
-**Source:** [https://www.countyhealthrankings.org/health-data](https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation)  
+**Source:** [https://www.countyhealthrankings.org/health-data](https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation)  ("2025 County Health Release National Data")
 **Provider:** Robert Wood Johnson Foundation & University of Wisconsin Population Health Institute  
 **File:** `2025 County Health Rankings Data - v3.xlsx`
 
