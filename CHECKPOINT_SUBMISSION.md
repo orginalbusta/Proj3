@@ -200,7 +200,7 @@ We have **4 options** for the final dynamic visualization. Each uses our explora
 
 ---
 
-### Option 1: Residual/Deviation Map ⭐ **RECOMMENDED**
+### Option 1: Residual/Deviation Map 
 
 #### The Concept:
 Use our Random Forest model (Graph 6) to **predict** each county's life expectancy based on socioeconomic factors. Then visualize the **difference** between predicted and actual:
