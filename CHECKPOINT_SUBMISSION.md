@@ -150,7 +150,7 @@
 
 ## 4. Current Progress: Basic Interactive Map (Baseline)
 
-**Status:** ✅ Functional prototype deployed  
+**Status:**  Functional prototype deployed  
 **Live URL:** https://orginalbusta.github.io/Proj3/
 
 **What We've Built:**
