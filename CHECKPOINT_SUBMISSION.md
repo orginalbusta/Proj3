@@ -1,8 +1,7 @@
 # Project 3: Checkpoint Submission
 ## Interactive Health Inequality Visualization
 
-**Team:** [Team Name]  
-**Members:** [List team members]  
+**Team:** [Undetermined]  
 **Date:** October 31, 2024
 
 ---
