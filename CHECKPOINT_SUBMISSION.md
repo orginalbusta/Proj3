@@ -30,29 +30,6 @@
 
 ---
 
-### Supplementary Datasets (Available for Enhancement)
-
-#### CDC PLACES (Local Data for Better Health)
-**Source:** https://www.cdc.gov/places/  
-**Files in our repo:**
-- `PLACES__Local_Data_for_Better_Health,_County_Data_2020_release.csv`
-- `PLACES__Local_Data_for_Better_Health,_County_Data_2021_release.csv`
-- `PLACES__Local_Data_for_Better_Health,_County_Data_2022_release.csv`
-- `PLACES__Local_Data_for_Better_Health,_County_Data_2023_release.csv`
-- `PLACES__Local_Data_for_Better_Health,_County_Data_2024_release.csv`
-
-**Coverage:** County-level health data for 2018-2022 (actual data years)  
-**Potential Use:** Time-series analysis if we implement temporal exploration
-
-#### County Health Rankings Trends
-**Source:** Same as primary dataset  
-**File:** `chr_trends_csv_2025.csv`  
-**Coverage:** Historical data 2014-2021 for select metrics  
-**Potential Use:** Long-term trend analysis
-
-**Note:** For the checkpoint, we're focusing on the primary 2024 dataset. Supplementary datasets could be integrated for final submission if time permits and if our chosen visualization approach benefits from temporal data.
-
----
 
 ## 2. Exploratory Graphs (6 Total)
 
