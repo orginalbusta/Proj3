@@ -210,11 +210,11 @@ Use our Random Forest model (Graph 6) to **predict** each county's life expectan
 - **White/light counties** = Performing as expected
 
 #### Why This Is Strong:
-✅ **Directly uses our exploratory analysis** (RF model isn't just for show)  
-✅ **Highlights interesting outliers** (exceptions are more interesting than the rule)  
-✅ **Enables actionable discovery:** "What's this poor county doing right?"  
-✅ **Novel approach** (not just another choropleth)  
-✅ **Policy-relevant:** Identify best practices from overperforming counties
+ **Directly uses our exploratory analysis** (RF model isn't just for show)  
+ **Highlights interesting outliers** (exceptions are more interesting than the rule)  
+ **Enables actionable discovery:** "What's this poor county doing right?"  
+ **Novel approach** (not just another choropleth)  
+ **Policy-relevant:** Identify best practices from overperforming counties
 
 #### Interactions:
 - **Default view:** Deviation map (red/white/green)
@@ -262,10 +262,10 @@ Show **TWO variables simultaneously** using a 2D color scale:
 - Bright blue = Low income + Good health (**interesting outlier!**)
 
 #### Why This Is Strong:
-✅ **Shows correlation at a glance** (diagonal pattern = correlated variables)  
-✅ **Visually striking** (not a typical choropleth)  
-✅ **Highlights outliers** (off-diagonal colors stand out)  
-✅ **Flexible** (user chooses which two metrics to compare)
+ **Shows correlation at a glance** (diagonal pattern = correlated variables)  
+ **Visually striking** (not a typical choropleth)  
+ **Highlights outliers** (off-diagonal colors stand out)  
+ **Flexible** (user chooses which two metrics to compare)
 
 #### Interactions:
 - **Dropdown 1:** Select X-axis metric (12 options)
@@ -310,10 +310,10 @@ Show **multiple coordinated views** side-by-side:
 - Click county → Highlight across all views + show detail modal
 
 #### Why This Is Strong:
-✅ **Comparison is explicit** (see both factors side-by-side)  
-✅ **Brushing enables hypothesis testing** (select Midwest, see if pattern holds)  
-✅ **Multi-view coordination** (advanced interaction technique)  
-✅ **Scatter plot shows individual data points** (not just aggregated by geography)
+ **Comparison is explicit** (see both factors side-by-side)  
+ **Brushing enables hypothesis testing** (select Midwest, see if pattern holds)  
+ **Multi-view coordination** (advanced interaction technique)  
+ **Scatter plot shows individual data points** (not just aggregated by geography)
 
 #### Interactions:
 - **Metric selectors:** Two dropdowns (one per map)
@@ -358,10 +358,10 @@ Use **k-means clustering** or hierarchical clustering to group counties into 5-6
 Map is colored by cluster membership (categorical color scale).
 
 #### Why This Is Strong:
-✅ **Reveals hidden patterns** (not obvious from single metrics)  
-✅ **Actionable insights** (each cluster needs different interventions)  
-✅ **Uses ML meaningfully** (clustering on all 12 dimensions)  
-✅ **Tells a story** (archetypal counties are memorable)
+ **Reveals hidden patterns** (not obvious from single metrics)  
+ **Actionable insights** (each cluster needs different interventions)  
+ **Uses ML meaningfully** (clustering on all 12 dimensions)  
+ **Tells a story** (archetypal counties are memorable)
 
 #### Interactions:
 - **Default view:** Map colored by cluster (6 colors)
