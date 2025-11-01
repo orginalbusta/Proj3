@@ -1,7 +1,12 @@
 # Project 3: Checkpoint Submission
 ## Interactive Health Inequality Visualization
 
-**Team:** [Undetermined]  
+**Team:**
+Harsh Arya - harya@ucsd.edu - A14644435 
+Gabrielle Despaigne - gdespaigne@ucsd.edu - A69036674
+Camila Paik - capaik@ucsd.edu - A13500891 
+Raghav Vasappanavara - rvasappanavara@ucsd.edu - A69037944
+
 **Date:** October 31, 2024
 
 ---
